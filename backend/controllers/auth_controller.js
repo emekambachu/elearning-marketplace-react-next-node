@@ -1,5 +1,8 @@
 import User from '../models/user';
-import {hashPassword, comparePassword} from "../service/auth_service";
+import {
+    hashPassword,
+    comparePassword
+} from "../service/auth_service";
 import jwt from 'jsonwebtoken';
 
 export const register = async (req, res) => {
