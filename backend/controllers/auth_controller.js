@@ -111,10 +111,14 @@ export const logout = async (req, res) => {
 export const currentUser = async (req, res) => {
     try {
         // find by id and select all except password
-        const user = await User.findById(req.user._id)
+        const user = await User.findById(req.auth._id)
             .select('-password')
             .exec();
         console.log('CURRENT_USER', user);
+        res.json({
+            success: true,
+            user: user
+        });
     }catch (err) {
         console.log(err);
     }
